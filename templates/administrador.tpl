@@ -16,12 +16,5 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<h2> Si estas leyendo esto, el template de administrador se copio en la vista de las propiedades, nadie sabe todavia por qué </h2>
-
-<br> 
-<h6> ojala sea un error por incluir mal smarty, ah seguia </h6>
-
-{* todavia no sé por qué muestra esta mierda en los detalles de las propiedades...
-te toca resolverlo a vos y estresarte un poquito *}
 
 {include file="templates/footer.tpl"}

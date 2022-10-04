@@ -25,5 +25,8 @@ class InmoModel {
         return $property; //singular mostrando la propiedad seleccionada
     }
 
-
+    public function insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta){
+        $query = $this->db->prepare("INSERT INTO `propiedades`(`direccion`, `tipo`, `habitaciones`,`precio`,`alquiler_venta`) VALUES(?,?,?,?,?)");
+        $query->execute([$direccion, $tipo, $habitaciones,$precio,$alquiler_venta]);
+    }
 }

@@ -16,9 +16,6 @@ class InmoController {
         $this->view->showProperties($property);
     }
 
-    public function showAdminPage(){
-        $this->view->Logadmin();
-    }
    
     public function showFilters(){
         $tipo = $this ->model->showWithFilters();

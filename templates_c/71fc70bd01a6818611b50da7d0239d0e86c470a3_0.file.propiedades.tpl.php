@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-04 16:20:12
+/* Smarty version 4.2.1, created on 2022-10-04 23:17:05
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633c411c114be1_69572605',
+  'unifunc' => 'content_633ca2d11b1672_97756834',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1664841524,
+      1 => 1664918218,
       2 => 'file',
     ),
   ),
@@ -21,18 +21,35 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ),false)) {
-function content_633c411c114be1_69572605 (Smarty_Internal_Template $_smarty_tpl) {
+function content_633ca2d11b1672_97756834 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <form method='POST' id='filtro'>
     <input placeholder='buscar por categoria'>
 </form>
 
-<!-- opinion personal, si esta vista de propiedades es 
-para el admin (para borrar o editar las propiedades q tenes publicadas) ta bien,
-pero si queres hacer para q sea el home de la pagina, no lo veo mucho con una tabla
-(este mismo template lo podes copiar cuando hagas el /admin y ahi seria un template tipo adminProperties.tpl o algo asi)
- -->
+<form method='POST' action="agregar">
+  <input placeholder=direccion name="direccion">
+
+  <select class="form-select" aria-label="Default select example" name="tipo">
+    <option selected>elija tipo </option>
+    <option value="casa" name="tipo">casa</option>
+    <option value="departamento"name="tipo">departamento</option>
+    <option value="lote"name="tipo">lote</option>
+    <option value="monoambiente"name="tipo">monoambiente</option>
+  </select>
+
+  <input placeholder=habitaciones type="number" name="habitaciones">
+
+  <input placeholder=precio type="number" name="precio">
+
+  <select class="form-select" aria-label="Default select example" name="alquiler_venta">
+        <option selected>alquiler/venta</option>
+        <option value="alquiler" name="alquiler_venta">alquiler</option>
+        <option value="venta" name="alquiler_venta">venta</option>
+  </select>
+   <button type="submit">enviar</button>
+</form>  
 
 <div class="container">
 

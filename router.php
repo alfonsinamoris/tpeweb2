@@ -1,5 +1,6 @@
 <?php
 require_once './controller/inmo.controller.php';
+require_once './controller/admin.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 $action = 'propiedades';
@@ -11,6 +12,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $inmoController = new InmoController();
+$adminController = new adminController();
 
 switch ($params[0]) {
     case 'propiedades':
@@ -19,7 +21,16 @@ switch ($params[0]) {
     case 'detalle':
         $inmoController->showProperty($params[1]);
     case 'administrador':
-        $inmoController->showAdminPage();
+        $adminController->showAdminPage();
+        break;
+    case 'agregar':
+        $adminController->AddItem();
+        break;
+    case 'borrar':
+        $adminController->DeleteItem();
+        break;
+    case 'editar':
+        $adminController->EditItem();
         break;
     default:
         echo ('404 Page not found');

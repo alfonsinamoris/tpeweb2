@@ -22,9 +22,7 @@ class InmoView {
     }
 
     function showProperty($property){
-        //me aseguro de escribir bien la asignacion y la variable...je
-        $this->smarty->assign('property',$property); //habias llamado a la asignacion, 'detalle' y despues la llamabas con
-                                                    // propertie, nunca iba a andar
+        $this->smarty->assign('property',$property); 
         $this->smarty->display('templates/detail.tpl'); 
     }
 }

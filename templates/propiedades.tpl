@@ -3,11 +3,28 @@
     <input placeholder='buscar por categoria'>
 </form>
 
-<!-- opinion personal, si esta vista de propiedades es 
-para el admin (para borrar o editar las propiedades q tenes publicadas) ta bien,
-pero si queres hacer para q sea el home de la pagina, no lo veo mucho con una tabla
-(este mismo template lo podes copiar cuando hagas el /admin y ahi seria un template tipo adminProperties.tpl o algo asi)
- -->
+<form method='POST' action="agregar">
+  <input placeholder=direccion name="direccion">
+
+  <select class="form-select" aria-label="Default select example" name="tipo">
+    <option selected>elija tipo </option>
+    <option value="casa" name="tipo">casa</option>
+    <option value="departamento"name="tipo">departamento</option>
+    <option value="lote"name="tipo">lote</option>
+    <option value="monoambiente"name="tipo">monoambiente</option>
+  </select>
+
+  <input placeholder=habitaciones type="number" name="habitaciones">
+
+  <input placeholder=precio type="number" name="precio">
+
+  <select class="form-select" aria-label="Default select example" name="alquiler_venta">
+        <option selected>alquiler/venta</option>
+        <option value="alquiler" name="alquiler_venta">alquiler</option>
+        <option value="venta" name="alquiler_venta">venta</option>
+  </select>
+   <button type="submit">enviar</button>
+</form>  
 
 <div class="container">
 
