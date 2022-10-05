@@ -41,12 +41,12 @@
         {foreach from=$properties item=$property}
             <tbody class="table-group-divider">
                 <tr>
-                    <td><a href="detalle/{$property->id}"> {$property->direccion} </td>
+                    <td><a href="detalle/{$property->id_propiedad}"> {$property->direccion} </td>
                     <td> {$property->tipo} </td>
                     <td> {$property->habitaciones} </td>
                     <td> {$property->precio} </td>
                     <td> {$property->alquiler_venta} </td>
-                    <td> <button id="borrar">BORRAR </td>
+                    <td> <a class="btn btn-outline-danger" type="button" href="delete/{$property->id_propiedad}"> BORRAR </a>
                     <td> <button id="editar">EDITAR </td>
                 </tr>
             </tbody>

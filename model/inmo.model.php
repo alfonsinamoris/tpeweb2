@@ -18,15 +18,20 @@ class InmoModel {
 
     }
 
-    public function showPropertyDetail($id){
-        $query = $this->db->prepare("SELECT * FROM propiedades WHERE id=?");
-        $query->execute(array($id));
+    public function showPropertyDetail($id_propiedad){
+        $query = $this->db->prepare("SELECT * FROM propiedades WHERE id_propiedad=?");
+        $query->execute(array($id_propiedad));
         $property = $query->fetch(PDO::FETCH_OBJ);
-        return $property; //singular mostrando la propiedad seleccionada
+        return $property;
     }
 
     public function insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta){
         $query = $this->db->prepare("INSERT INTO `propiedades`(`direccion`, `tipo`, `habitaciones`,`precio`,`alquiler_venta`) VALUES(?,?,?,?,?)");
         $query->execute([$direccion, $tipo, $habitaciones,$precio,$alquiler_venta]);
+    }
+
+    public function DeleteItemById($id_propiedad){
+        $query = $this->db->prepare('DELETE FROM propiedades WHERE id_propiedad=?');
+        $query->execute([$id_propiedad]);
     }
 }

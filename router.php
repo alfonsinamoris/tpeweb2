@@ -27,7 +27,8 @@ switch ($params[0]) {
         $adminController->AddItem();
         break;
     case 'borrar':
-        $adminController->DeleteItem();
+        $id_propiedad = $params[1];
+        $adminController->DeleteItem($id_propiedad);
         break;
     case 'editar':
         $adminController->EditItem();

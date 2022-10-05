@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-04 23:17:05
+/* Smarty version 4.2.1, created on 2022-10-05 14:19:00
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633ca2d11b1672_97756834',
+  'unifunc' => 'content_633d7634267a84_24921667',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1664918218,
+      1 => 1664972335,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ),false)) {
-function content_633ca2d11b1672_97756834 (Smarty_Internal_Template $_smarty_tpl) {
+function content_633d7634267a84_24921667 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <form method='POST' id='filtro'>
@@ -71,7 +71,7 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
 ?>
             <tbody class="table-group-divider">
                 <tr>
-                    <td><a href="detalle/<?php echo $_smarty_tpl->tpl_vars['property']->value->id;?>
+                    <td><a href="detalle/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 "> <?php echo $_smarty_tpl->tpl_vars['property']->value->direccion;?>
  </td>
                     <td> <?php echo $_smarty_tpl->tpl_vars['property']->value->tipo;?>
@@ -82,7 +82,8 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
  </td>
                     <td> <?php echo $_smarty_tpl->tpl_vars['property']->value->alquiler_venta;?>
  </td>
-                    <td> <button id="borrar">BORRAR </td>
+                    <td> <a class="btn btn-outline-danger" type="button" href="delete/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
+"> BORRAR </a>
                     <td> <button id="editar">EDITAR </td>
                 </tr>
             </tbody>

@@ -31,7 +31,3 @@
             </div>
         </div>
     </nav>
-
-    {* Podés hacer un dropdown para elegir propiedades en alquiler o venta, 
-    si esa es la asociacion q tenes con la tabla propiedades x ejemplo
-    *}

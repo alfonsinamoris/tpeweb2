@@ -22,7 +22,12 @@ class adminController {
         $precio = $_POST['precio'];
         $alquiler_venta = ['alquiler_venta'];
 
-        $id = $this->model->insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
+        $id_propiedad = $this->model->insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
         header("Location: " . BASE_URL . "propiedades");
+    }
+
+    public function DeleteItem($id_propiedad){
+        $this->model->DeleteItemById($id_propiedad);
+        header("Location: " . BASE_URL);
     }
 }

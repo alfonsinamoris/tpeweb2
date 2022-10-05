@@ -22,8 +22,8 @@ class InmoController {
         $this->view->showFilters($tipo); 
     }
 
-    public function showProperty($id){
-        $itemSelected = $this->model->showPropertyDetail($id);
+    public function showProperty($id_propiedad){
+        $itemSelected = $this->model->showPropertyDetail($id_propiedad);
         $this->view->showProperty($itemSelected);
     }
 }
