@@ -20,7 +20,7 @@ class InmoView {
     function Logadmin(){
         $this->smarty->display('templates/administrador.tpl');
     }
-
+    //muestra detalle
     function showProperty($property){
         $this->smarty->assign('property',$property); 
         $this->smarty->display('templates/detail.tpl'); 

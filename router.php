@@ -18,17 +18,16 @@ switch ($params[0]) {
     case 'propiedades':
         $inmoController->showProperties();
         break;
-    case 'detalle':
+    case 'detalle': //muestro el detalle de cada item- mando funcion al controller USER
         $inmoController->showProperty($params[1]);
-    case 'administrador':
+    case 'administrador'://muestro el form para acceder a ADMIN
         $adminController->showAdminPage();
         break;
-    case 'agregar':
+    case 'agregar'://agrego item con form - mando funcion al controller ADMIN
         $adminController->AddItem();
         break;
-    case 'borrar':
-        $id_propiedad = $params[1];
-        $adminController->DeleteItem($id_propiedad);
+    case 'borrar'://borro item con boton - mando al controller ADMIN
+        $adminController->DeleteItem($params[1]);
         break;
     case 'editar':
         $adminController->EditItem();

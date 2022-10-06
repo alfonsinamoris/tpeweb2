@@ -1,29 +1,28 @@
 {include file="header.tpl"}
-<form method='POST' id='filtro'>
-    <input placeholder='buscar por categoria'>
-</form>
-
+{*
+<select class="form-select" name="type_option">
+{foreach from=$tipo_propiedad as=$tipo}
+    <option value="{$tipo}" name="tipo">{$tipo}</option>
+{/foreach}    
+</select>
+*}
 <form method='POST' action="agregar">
-  <input placeholder=direccion name="direccion">
-
-  <select class="form-select" aria-label="Default select example" name="tipo">
-    <option selected>elija tipo </option>
-    <option value="casa" name="tipo">casa</option>
-    <option value="departamento"name="tipo">departamento</option>
-    <option value="lote"name="tipo">lote</option>
-    <option value="monoambiente"name="tipo">monoambiente</option>
-  </select>
-
-  <input placeholder=habitaciones type="number" name="habitaciones">
-
-  <input placeholder=precio type="number" name="precio">
-
-  <select class="form-select" aria-label="Default select example" name="alquiler_venta">
+<input class="form-control" placeholder=direccion name="direccion">
+    <select class="form-select" name="tipo" placeholder="tipo">
+        <option selected>tipo</option>
+        <option value="casa" name="tipo">casa</option>
+        <option value="departamento"name="tipo">departamento</option>
+        <option value="lote"name="tipo">lote</option>
+        <option value="monoambiente"name="tipo">monoambiente</option>
+    </select>
+<input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
+<input class="form-control" placeholder=precio type="number" name="precio">
+<select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
         <option selected>alquiler/venta</option>
         <option value="alquiler" name="alquiler_venta">alquiler</option>
         <option value="venta" name="alquiler_venta">venta</option>
-  </select>
-   <button type="submit">enviar</button>
+</select>
+<button class="btn btn-outline-secondary" type="submit" href="agregar/{$property->id}">enviar</button>
 </form>  
 
 <div class="container">
@@ -46,8 +45,8 @@
                     <td> {$property->habitaciones} </td>
                     <td> {$property->precio} </td>
                     <td> {$property->alquiler_venta} </td>
-                    <td> <a class="btn btn-outline-danger" type="button" href="delete/{$property->id_propiedad}"> BORRAR </a>
-                    <td> <button id="editar">EDITAR </td>
+                    <td> <a class="btn btn-outline-danger" type="button" href="borrar/{$property->id_propiedad}"> BORRAR </a>
+                    <td> <a class="btn btn-outline-secondary" type="button">EDITAR </td>
                 </tr>
             </tbody>
         {{/foreach}}

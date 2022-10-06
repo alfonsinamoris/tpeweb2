@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-05 14:19:00
+/* Smarty version 4.2.1, created on 2022-10-06 13:51:31
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633d7634267a84_24921667',
+  'unifunc' => 'content_633ec143434d47_88552765',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1664972335,
+      1 => 1665057088,
       2 => 'file',
     ),
   ),
@@ -21,34 +21,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ),false)) {
-function content_633d7634267a84_24921667 (Smarty_Internal_Template $_smarty_tpl) {
+function content_633ec143434d47_88552765 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<form method='POST' id='filtro'>
-    <input placeholder='buscar por categoria'>
-</form>
-
 <form method='POST' action="agregar">
-  <input placeholder=direccion name="direccion">
-
-  <select class="form-select" aria-label="Default select example" name="tipo">
-    <option selected>elija tipo </option>
-    <option value="casa" name="tipo">casa</option>
-    <option value="departamento"name="tipo">departamento</option>
-    <option value="lote"name="tipo">lote</option>
-    <option value="monoambiente"name="tipo">monoambiente</option>
-  </select>
-
-  <input placeholder=habitaciones type="number" name="habitaciones">
-
-  <input placeholder=precio type="number" name="precio">
-
-  <select class="form-select" aria-label="Default select example" name="alquiler_venta">
+<input class="form-control" placeholder=direccion name="direccion">
+    <select class="form-select" name="tipo" placeholder="tipo">
+        <option selected>tipo</option>
+        <option value="casa" name="tipo">casa</option>
+        <option value="departamento"name="tipo">departamento</option>
+        <option value="lote"name="tipo">lote</option>
+        <option value="monoambiente"name="tipo">monoambiente</option>
+    </select>
+<input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
+<input class="form-control" placeholder=precio type="number" name="precio">
+<select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
         <option selected>alquiler/venta</option>
         <option value="alquiler" name="alquiler_venta">alquiler</option>
         <option value="venta" name="alquiler_venta">venta</option>
-  </select>
-   <button type="submit">enviar</button>
+</select>
+<button class="btn btn-outline-secondary" type="submit" href="agregar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id;?>
+">enviar</button>
 </form>  
 
 <div class="container">
@@ -82,9 +75,9 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
  </td>
                     <td> <?php echo $_smarty_tpl->tpl_vars['property']->value->alquiler_venta;?>
  </td>
-                    <td> <a class="btn btn-outline-danger" type="button" href="delete/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
+                    <td> <a class="btn btn-outline-danger" type="button" href="borrar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 "> BORRAR </a>
-                    <td> <button id="editar">EDITAR </td>
+                    <td> <a class="btn btn-outline-secondary" type="button">EDITAR </td>
                 </tr>
             </tbody>
         <?php ob_start();
