@@ -46,7 +46,7 @@ switch ($params[0]) {
 
     case 'editar':
         $inmoController = new InmoController();
-        $inmoController->EditItem();
+        $inmoController->EditItem($params[1]);
         break;
 
     default:

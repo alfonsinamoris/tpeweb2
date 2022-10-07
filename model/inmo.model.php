@@ -40,4 +40,10 @@ class InmoModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+    public function EditItemById($id_propiedad){
+        $query = $this->db->prepare("UPDATE `propiedades` SET `id_propiedad`='?',`direccion`='?',`tipo`='?',`habitaciones`='?',`precio`='?',`alquiler_venta`='?' WHERE 'id_propiedad' = '?'");
+        $query->execute(array($id_propiedad));
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
 }

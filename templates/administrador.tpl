@@ -1,5 +1,4 @@
 {include file="header.tpl"}
-{if(!isset($smarty.session.USER_EMAIL))}
    <form method="POST" action="validate">
         <div class="mb-3">
             <label for="email" class="form-label">Email </label>
@@ -16,7 +15,7 @@
             </div>
         {/if}    
     </form>
-{/if}
+
 
 
 {include file="templates/footer.tpl"}

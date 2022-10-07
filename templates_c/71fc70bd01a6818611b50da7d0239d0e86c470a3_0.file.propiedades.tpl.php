@@ -1,63 +1,66 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-07 22:39:21
+/* Smarty version 4.2.1, created on 2022-10-08 00:45:04
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63408e79117674_49891681',
+  'unifunc' => 'content_6340abf066afe3_88776853',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1665175154,
+      1 => 1665182694,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:header.tpl' => 1,
+    'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_63408e79117674_49891681 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6340abf066afe3_88776853 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <select class="form-select" name="type_option">
-<?php
+    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipos']->value, 'tipo');
 $_smarty_tpl->tpl_vars['tipo']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
 $_smarty_tpl->tpl_vars['tipo']->do_else = false;
 ?>
-    <option name="tipos"><?php echo $_smarty_tpl->tpl_vars['tipo']->value;?>
+        <option><?php echo $_smarty_tpl->tpl_vars['tipo']->value;?>
 </option>
-<?php
+    <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>    
 </select>
 
-<form method='POST' action="agregar">
-<input class="form-control" placeholder=direccion name="direccion">
-    <select class="form-select" name="tipo" placeholder="tipo">
-        <option selected>tipo</option>
-        <option value="casa" name="tipo">casa</option>
-        <option value="departamento"name="tipo">departamento</option>
-        <option value="lote"name="tipo">lote</option>
-        <option value="monoambiente"name="tipo">monoambiente</option>
-    </select>
-<input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
-<input class="form-control" placeholder=precio type="number" name="precio">
-<select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
-        <option selected>alquiler/venta</option>
-        <option value="alquiler" name="alquiler_venta">alquiler</option>
-        <option value="venta" name="alquiler_venta">venta</option>
-</select>
-<button class="btn btn-outline-secondary" type="submit" href="agregar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id;?>
+<?php if (!(isset($_SESSION['USER_ID']))) {?>
+    <form method='POST' action="agregar">
+        <input class="form-control" placeholder=direccion name="direccion">
+            <select class="form-select" name="tipo" placeholder="tipo">
+                <option selected>tipo</option>
+                <option value="casa" name="tipo">casa</option>
+                <option value="departamento"name="tipo">departamento</option>
+                <option value="lote"name="tipo">lote</option>
+                <option value="monoambiente"name="tipo">monoambiente</option>
+            </select>
+        <input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
+        <input class="form-control" placeholder=precio type="number" name="precio">
+        <select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
+                <option selected>alquiler/venta</option>
+                <option value="alquiler" name="alquiler_venta">alquiler</option>
+                <option value="venta" name="alquiler_venta">venta</option>
+        </select>
+        <button class="btn btn-outline-secondary" type="submit" href="agregar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id;?>
 ">enviar</button>
-</form>  
+    </form>  
+<?php }?>
 
 <div class="container">
     <table class="table">
@@ -92,7 +95,8 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
                     <?php if (!(isset($_SESSION['USER_ID']))) {?>
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 "> BORRAR </a>
-                    <td> <a class="btn btn-outline-secondary" type="button">EDITAR </td>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="editar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
+">EDITAR </td>
                     <?php }?>
                 </tr>
             </tbody>
@@ -104,5 +108,7 @@ echo $_prefixVariable1;?>
 
     </table>
 
-</div><?php }
+</div>
+<?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
 }

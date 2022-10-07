@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-07 21:03:45
+/* Smarty version 4.2.1, created on 2022-10-08 00:45:04
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634078112c6098_35607621',
+  'unifunc' => 'content_6340abf0673029_96523509',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '59b8e08cc9147a1269f55668cb384a2d41d48910' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/header.tpl',
-      1 => 1665169418,
+      1 => 1665181267,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_634078112c6098_35607621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6340abf0673029_96523509 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <base href="<?php echo BASE_URL;?>
-" />  <!-- IMPORTANTE para evitar redirecciones de /x/1  -->
+" /> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +55,8 @@ function content_634078112c6098_35607621 (Smarty_Internal_Template $_smarty_tpl)
                     </li>
                     <?php } else { ?>
                         <li class="nav-item">
-                        <a class="nav-link active" href="logout">logout</a>
+                        <a class="nav-link active" href="logout">logout(<?php echo $_SESSION['USER_EMAIL'];?>
+)</a>
                     </li>
                     <?php }?>
 

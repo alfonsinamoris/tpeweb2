@@ -1,29 +1,31 @@
 {include file="header.tpl"}
 
 <select class="form-select" name="type_option">
-{foreach from=$tipos item=$tipo}
-    <option name="tipos">{$tipo}</option>
-{/foreach}    
+    {foreach from=$tipos item=$tipo}
+        <option>{$tipo}</option>
+    {/foreach}    
 </select>
 
-<form method='POST' action="agregar">
-<input class="form-control" placeholder=direccion name="direccion">
-    <select class="form-select" name="tipo" placeholder="tipo">
-        <option selected>tipo</option>
-        <option value="casa" name="tipo">casa</option>
-        <option value="departamento"name="tipo">departamento</option>
-        <option value="lote"name="tipo">lote</option>
-        <option value="monoambiente"name="tipo">monoambiente</option>
-    </select>
-<input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
-<input class="form-control" placeholder=precio type="number" name="precio">
-<select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
-        <option selected>alquiler/venta</option>
-        <option value="alquiler" name="alquiler_venta">alquiler</option>
-        <option value="venta" name="alquiler_venta">venta</option>
-</select>
-<button class="btn btn-outline-secondary" type="submit" href="agregar/{$property->id}">enviar</button>
-</form>  
+{if !isset($smarty.session.USER_ID)}
+    <form method='POST' action="agregar">
+        <input class="form-control" placeholder=direccion name="direccion">
+            <select class="form-select" name="tipo" placeholder="tipo">
+                <option selected>tipo</option>
+                <option value="casa" name="tipo">casa</option>
+                <option value="departamento"name="tipo">departamento</option>
+                <option value="lote"name="tipo">lote</option>
+                <option value="monoambiente"name="tipo">monoambiente</option>
+            </select>
+        <input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
+        <input class="form-control" placeholder=precio type="number" name="precio">
+        <select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
+                <option selected>alquiler/venta</option>
+                <option value="alquiler" name="alquiler_venta">alquiler</option>
+                <option value="venta" name="alquiler_venta">venta</option>
+        </select>
+        <button class="btn btn-outline-secondary" type="submit" href="agregar/{$property->id}">enviar</button>
+    </form>  
+{/if}
 
 <div class="container">
     <table class="table">
@@ -46,7 +48,7 @@
                     <td> {$property->alquiler_venta} </td>
                     {if !isset($smarty.session.USER_ID)}
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/{$property->id_propiedad}"> BORRAR </a>
-                    <td> <a class="btn btn-outline-secondary" type="button">EDITAR </td>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="editar/{$property->id_propiedad}">EDITAR </td>
                     {/if}
                 </tr>
             </tbody>
@@ -54,3 +56,4 @@
     </table>
 
 </div>
+{include file="templates/footer.tpl"}

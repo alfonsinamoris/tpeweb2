@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="{BASE_URL}" />  <!-- IMPORTANTE para evitar redirecciones de /x/1  -->
+    <base href="{BASE_URL}" /> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
                     </li>
                     {else}
                         <li class="nav-item">
-                        <a class="nav-link active" href="logout">logout</a>
+                        <a class="nav-link active" href="logout">logout({$smarty.session.USER_EMAIL})</a>
                     </li>
                     {/if}
 

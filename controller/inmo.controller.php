@@ -38,7 +38,7 @@ class InmoController {
     public function DeleteItem($id_propiedad){
         session_start();
         $this->model->DeleteItemById($id_propiedad);
-        header("Location: " . BASE_URL. "propiedades");
+        header("Location: " . BASE_URL . "propiedades");
     }
 
     public function AddItem(){
@@ -53,4 +53,11 @@ class InmoController {
         header("Location: " . BASE_URL );
     }
 
+    public function EditItem($id_propiedad){
+        session_start();
+        $buttonselected = $this->model->EditItemById($id_propiedad);
+        $this->view->EditItem($buttonselected);
+      
+
+    }
 }
