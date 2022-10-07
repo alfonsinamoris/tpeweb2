@@ -13,16 +13,6 @@ class InmoModel {
         return $properties;
     }
 
-    public function showWithFilters(){
-      $query = $this->db->prepare("SELECT * FROM propiedades");
-      $query->execute();
-      $properties = $query->fetchAll(PDO::FETCH_OBJ);
-      return $properties;
-      $query = $this->db->prepare("SELECT * FROM tipo_propiedad WHERE tipo = ?");
-      $query->execute([$property->$tipo]);
-      $tipo = $query->fetch(PDO::FETCH_OBJ);
-
-    }
     //muestra el detalle segun el id de la propiedad
     public function showPropertyDetail($id_propiedad){
         $query = $this->db->prepare("SELECT * FROM propiedades WHERE id_propiedad=?");
@@ -30,15 +20,24 @@ class InmoModel {
         $property = $query->fetch(PDO::FETCH_OBJ);
         return $property;
     }
+
     //inserta valores en la db
     public function insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta){
         $query = $this->db->prepare("INSERT INTO `propiedades`(`direccion`, `tipo`, `habitaciones`,`precio`,`alquiler_venta`) VALUES(?,?,?,?,?)");
         $query->execute([$direccion, $tipo, $habitaciones,$precio,$alquiler_venta]);
         return $this->db->lastInsertId();
     }
+
     //borra item x id
     public function DeleteItemById($id_propiedad){
         $query = $this->db->prepare('DELETE FROM propiedades WHERE id_propiedad=?');
         $query->execute(array($id_propiedad));
     }
+
+    public function getUserByEmail($email){
+        $query = $this->db->prepare("SELECT * FROM users WHERE email = ?");
+        $query->execute([$email]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
 }

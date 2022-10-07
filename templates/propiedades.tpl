@@ -1,11 +1,11 @@
 {include file="header.tpl"}
-{*
+
 <select class="form-select" name="type_option">
-{foreach from=$tipo_propiedad as=$tipo}
-    <option value="{$tipo}" name="tipo">{$tipo}</option>
+{foreach from=$tipos item=$tipo}
+    <option name="tipos">{$tipo}</option>
 {/foreach}    
 </select>
-*}
+
 <form method='POST' action="agregar">
 <input class="form-control" placeholder=direccion name="direccion">
     <select class="form-select" name="tipo" placeholder="tipo">
@@ -26,7 +26,6 @@
 </form>  
 
 <div class="container">
-
     <table class="table">
         <thead>
             <tr>
@@ -45,8 +44,10 @@
                     <td> {$property->habitaciones} </td>
                     <td> {$property->precio} </td>
                     <td> {$property->alquiler_venta} </td>
+                    {if !isset($smarty.session.USER_ID)}
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/{$property->id_propiedad}"> BORRAR </a>
                     <td> <a class="btn btn-outline-secondary" type="button">EDITAR </td>
+                    {/if}
                 </tr>
             </tbody>
         {{/foreach}}

@@ -25,9 +25,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="propiedades">PROPIEDADES</a>
                     </li>
+                    {if !isset($smarty.session.USER_EMAIL)}
                     <li class="nav-item">
-                        <a class="nav-link active" href="administrador">ADMINISTRADOR</a>
+                        <a class="nav-link active" href="login">login</a>
                     </li>
+                    {else}
+                        <li class="nav-item">
+                        <a class="nav-link active" href="logout">logout</a>
+                    </li>
+                    {/if}
+
             </div>
         </div>
     </nav>

@@ -11,27 +11,44 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-$inmoController = new InmoController();
-$adminController = new adminController();
-
 switch ($params[0]) {
     case 'propiedades':
+        $inmoController = new InmoController();
         $inmoController->showProperties();
         break;
+
     case 'detalle': //muestro el detalle de cada item- mando funcion al controller USER
+        $inmoController = new InmoController();
         $inmoController->showProperty($params[1]);
-    case 'administrador'://muestro el form para acceder a ADMIN
+
+    case 'login'://muestro el form para acceder a ADMIN
+        $adminController = new adminController();
         $adminController->showAdminPage();
         break;
+
+    case 'validate':
+        $AdminController = new AdminController();
+        $AdminController->validateUser();
+        break;
+    case 'logout':
+        $AdminController = new AdminController();
+        $AdminController->Logout();
+
     case 'agregar'://agrego item con form - mando funcion al controller ADMIN
-        $adminController->AddItem();
+        $inmoController = new InmoController();
+        $inmoController->AddItem();
         break;
+
     case 'borrar'://borro item con boton - mando al controller ADMIN
-        $adminController->DeleteItem($params[1]);
+        $inmoController = new InmoController();
+        $inmoController->DeleteItem($params[1]);
         break;
+
     case 'editar':
-        $adminController->EditItem();
+        $inmoController = new InmoController();
+        $inmoController->EditItem();
         break;
+
     default:
         echo ('404 Page not found');
         break;
