@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-08 00:18:14
+/* Smarty version 4.2.1, created on 2022-10-09 01:05:20
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/administrador.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6340a5a6e443d3_79987962',
+  'unifunc' => 'content_634202306767f6_21220062',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'db056488981be26f4ef0881368278ba2e1d27961' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/administrador.tpl',
-      1 => 1665181092,
+      1 => 1665181194,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6340a5a6e443d3_79987962 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634202306767f6_21220062 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-if (!(isset($_SESSION['USER_ID']))) {?>
+?>
    <form method="POST" action="validate">
         <div class="mb-3">
             <label for="email" class="form-label">Email </label>
@@ -42,7 +42,7 @@ if (!(isset($_SESSION['USER_ID']))) {?>
             </div>
         <?php }?>    
     </form>
-<?php }?>
+
 
 
 <?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

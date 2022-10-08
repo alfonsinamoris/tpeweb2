@@ -6,7 +6,7 @@ class InmoView {
 
     public function __construct() {
         $this->smarty = new Smarty(); // inicializo Smarty
-
+        $this->controller = new adminController();
     }
     function showProperties($properties){
         $this->smarty->assign('properties', $properties);

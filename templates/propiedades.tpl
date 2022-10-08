@@ -2,11 +2,11 @@
 
 <select class="form-select" name="type_option">
     {foreach from=$tipos item=$tipo}
-        <option>{$tipo}</option>
+        <option>{$tipo->tipo_propiedad}</option>
     {/foreach}    
 </select>
 
-{if !isset($smarty.session.USER_ID)}
+{if isset($smarty.session.USER_EMAIL)}
     <form method='POST' action="agregar">
         <input class="form-control" placeholder=direccion name="direccion">
             <select class="form-select" name="tipo" placeholder="tipo">
@@ -46,7 +46,7 @@
                     <td> {$property->habitaciones} </td>
                     <td> {$property->precio} </td>
                     <td> {$property->alquiler_venta} </td>
-                    {if !isset($smarty.session.USER_ID)}
+                    {if isset($smarty.session.USER_EMAIL)}
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/{$property->id_propiedad}"> BORRAR </a>
                     <td> <a class="btn btn-outline-secondary" type="button" href="editar/{$property->id_propiedad}">EDITAR </td>
                     {/if}
