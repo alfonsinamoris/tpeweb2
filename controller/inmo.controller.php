@@ -54,7 +54,7 @@ class InmoController {
 
     public function AddItem(){
         session_start();
-        checkLoggedIn();
+        $this->checkLoggedIn();
         $direccion = $_POST['direccion'];
         $tipo = $_POST['tipo'];
         $habitaciones = $_POST['habitaciones'];
@@ -67,7 +67,7 @@ class InmoController {
 
     public function EditItem($id_propiedad){
         session_start();
-        checkLoggedIn();
+        $this->checkLoggedIn();
         $buttonselected = $this->model->EditItemById($id_propiedad);
         $this->view->EditItem($buttonselected);
       
