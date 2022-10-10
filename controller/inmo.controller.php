@@ -1,17 +1,27 @@
 <?php
 require_once './model/inmo.model.php';
 require_once './view/inmo.view.php';
-require_once'./model/type.model.php';
+require_once './model/type.model.php';
 
 class InmoController {
     private $model;
     private $view;
+    private $typemodel;
 
     public function __construct(){
         $this->model = new InmoModel();
         $this->view = new InmoView();
-       // $this->typemodel = new TypeModel();
+        $this->typemodel = new TypeModel();
+
     }
+
+    public function checkLoggedIn() {
+        session_start();
+        if (!isset($_SESSION['IS_LOGGED'])) {
+            header("Location: " . BASE_URL);
+            die();
+        }
+    } 
 
     //muestra propiedades en la tabla
     public function showProperties(){
@@ -37,12 +47,14 @@ class InmoController {
     //toma id del boton y borra
     public function DeleteItem($id_propiedad){
         session_start();
+        $this->checkLoggedIn();
         $this->model->DeleteItemById($id_propiedad);
         header("Location: " . BASE_URL . "propiedades");
     }
 
     public function AddItem(){
         session_start();
+        checkLoggedIn();
         $direccion = $_POST['direccion'];
         $tipo = $_POST['tipo'];
         $habitaciones = $_POST['habitaciones'];
@@ -55,6 +67,7 @@ class InmoController {
 
     public function EditItem($id_propiedad){
         session_start();
+        checkLoggedIn();
         $buttonselected = $this->model->EditItemById($id_propiedad);
         $this->view->EditItem($buttonselected);
       

@@ -10,6 +10,7 @@ class adminController {
     public function __construct() {
      $this->model = new InmoModel();
      $this->view = new AdminView();
+     
     }
 
     public function showAdminPage(){

@@ -10,9 +10,7 @@ class TypeModel {
         $query = $this->db->prepare("SELECT * FROM tipo_propiedad");
         $query->execute();
         $tipos = $query->fetchAll(PDO::FETCH_OBJ);
-        return $tipos;
-        var_dump($tipos);
-        
+        return $tipos;      
     }
 
 }
