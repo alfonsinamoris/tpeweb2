@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-11 16:14:52
+/* Smarty version 4.2.1, created on 2022-10-11 23:38:05
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63457a5cad4a60_02323558',
+  'unifunc' => 'content_6345e23d182764_98436432',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1665497688,
+      1 => 1665524282,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,27 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_63457a5cad4a60_02323558 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6345e23d182764_98436432 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+<table>
+    <tr>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipos']->value, 'tipo');
+$_smarty_tpl->tpl_vars['tipo']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
+$_smarty_tpl->tpl_vars['tipo']->do_else = false;
+?>
+          <td><?php echo $_smarty_tpl->tpl_vars['tipo']->value->tipo_propiedad;?>
+</td>
+        <?php ob_start();
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+$_prefixVariable1 = ob_get_clean();
+echo $_prefixVariable1;?>
+
+    </tr>
+</table>        
 
 <select class="form-select" name="type_option">
     <option selected>ver todas </option>
@@ -96,7 +114,7 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
                     <?php if ((isset($_SESSION['USER_EMAIL']))) {?>
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 "> BORRAR </a>
-                    <td> <a class="btn btn-outline-secondary" type="button" href="formedit/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="formeditar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 ">EDITAR </td>
                     <?php }?>
                 </tr>
@@ -104,8 +122,8 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
         <?php ob_start();
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable1 = ob_get_clean();
-echo $_prefixVariable1;?>
+$_prefixVariable2 = ob_get_clean();
+echo $_prefixVariable2;?>
 
     </table>
 

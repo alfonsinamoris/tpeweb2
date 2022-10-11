@@ -27,5 +27,6 @@ class InmoView {
     }
     function EditItem($property){
         $this->smarty->assign('property',$property);
-    }
+        $this->smarty->display('templates/propiedades.tpl');
+ }
 }

@@ -2,6 +2,7 @@
 require_once './controller/inmo.controller.php';
 require_once './controller/admin.controller.php';
 
+
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 $action = 'propiedades';
 
@@ -43,17 +44,14 @@ switch ($params[0]) {
         $inmoController = new InmoController();
         $inmoController->DeleteItem($params[1]);
         break;
-        
-    case 'formedit':
+    case 'formeditar':
+        $id_propiedad = $params[1];
         $inmoController = new InmoController();
-        $inmoController->ShowFormEdit();
-        break;
-
+        $inmoController->ShowFormEdit($id_propiedad);
     case 'editar':
-        $inmoController = new InmoController();
-        $inmoController->EditItem($params[1]);
-        break;
-
+        $id_propiedad = $params[1];
+         $inmoController = new InmoController();
+         $inmoController->EditProperty($id_propiedad);
     default:
         echo ('404 Page not found');
         break;

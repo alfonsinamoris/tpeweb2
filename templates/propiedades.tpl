@@ -1,4 +1,11 @@
 {include file="header.tpl"}
+<table>
+    <tr>
+        {foreach from=$tipos item=$tipo}
+          <td>{$tipo->tipo_propiedad}</td>
+        {{/foreach}}
+    </tr>
+</table>        
 
 <select class="form-select" name="type_option">
     <option selected>ver todas </option>
@@ -49,7 +56,7 @@
                     <td> {$property->alquiler_venta} </td>
                     {if isset($smarty.session.USER_EMAIL)}
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/{$property->id_propiedad}"> BORRAR </a>
-                    <td> <a class="btn btn-outline-secondary" type="button" href="formedit/{$property->id_propiedad}">EDITAR </td>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="formeditar/{$property->id_propiedad}">EDITAR </td>
                     {/if}
                 </tr>
             </tbody>
