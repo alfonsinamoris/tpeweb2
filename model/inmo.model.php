@@ -24,7 +24,7 @@ class InmoModel {
     //inserta valores en la db
     public function insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta){
         $query = $this->db->prepare("INSERT INTO `propiedades`(`direccion`, `tipo`, `habitaciones`,`precio`,`alquiler_venta`) VALUES(?,?,?,?,?)");
-        $query->execute([$direccion, $tipo, $habitaciones,$precio,$alquiler_venta]);
+        $query->execute(array($direccion, $tipo, $habitaciones,$precio,$alquiler_venta));
         return $this->db->lastInsertId();
     }
 
@@ -41,7 +41,7 @@ class InmoModel {
     }
 
     public function EditItemById($id_propiedad){
-        $query = $this->db->prepare("UPDATE `propiedades` SET `id_propiedad`='?',`direccion`='?',`tipo`='?',`habitaciones`='?',`precio`='?',`alquiler_venta`='?' WHERE 'id_propiedad' = '?'");
+        $query = $this->db->prepare("UPDATE `propiedades` SET id_propiedad='?',direccion='?',tipo='?',habitaciones='?',precio='?',alquiler_venta='?' WHERE id_propiedad = '?'");
         $query->execute(array($id_propiedad));
         return $query->fetch(PDO::FETCH_OBJ);
     }

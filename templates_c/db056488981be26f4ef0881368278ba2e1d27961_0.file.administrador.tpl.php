@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-09 01:05:20
+/* Smarty version 4.2.1, created on 2022-10-11 01:57:14
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/administrador.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634202306767f6_21220062',
+  'unifunc' => 'content_6344b15a2864f4_09511328',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634202306767f6_21220062 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6344b15a2864f4_09511328 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
    <form method="POST" action="validate">

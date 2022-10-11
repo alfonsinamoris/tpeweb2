@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-10-2022 a las 01:40:13
+-- Tiempo de generación: 11-10-2022 a las 16:17:23
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `propiedades` (
   `id_propiedad` int(11) NOT NULL,
   `direccion` varchar(45) NOT NULL,
-  `tipo` varchar(45) NOT NULL,
+  `tipo` int(11) NOT NULL,
   `habitaciones` int(11) NOT NULL,
   `precio` int(11) NOT NULL,
   `alquiler_venta` varchar(45) NOT NULL
@@ -41,11 +41,8 @@ CREATE TABLE `propiedades` (
 --
 
 INSERT INTO `propiedades` (`id_propiedad`, `direccion`, `tipo`, `habitaciones`, `precio`, `alquiler_venta`) VALUES
-(6, 'Muniz 1654', 'casa', 3, 65000, 'alquiler'),
-(7, 'san martin 105', 'departamento', 2, 45000, 'venta'),
-(10, 'Chacabuco 1234', 'monoambiente', 0, 45000, 'Array'),
-(15, 'pinto 390', 'casa', 2, 12, 'Array'),
-(16, 'kjbjkbj', 'casa', 7, 60000, 'Array');
+(1, 'pinto 1200', 4, 2, 75000, 'alquiler'),
+(3, 'khbhbh', 3, 5, 70, 'Array');
 
 --
 -- Índices para tablas volcadas
@@ -66,7 +63,7 @@ ALTER TABLE `propiedades`
 -- AUTO_INCREMENT de la tabla `propiedades`
 --
 ALTER TABLE `propiedades`
-  MODIFY `id_propiedad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_propiedad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -76,7 +73,7 @@ ALTER TABLE `propiedades`
 -- Filtros para la tabla `propiedades`
 --
 ALTER TABLE `propiedades`
-  ADD CONSTRAINT `tipo` FOREIGN KEY (`tipo`) REFERENCES `tipo_propiedad` (`tipo`);
+  ADD CONSTRAINT `propiedades_ibfk_1` FOREIGN KEY (`tipo`) REFERENCES `tipo_propiedad` (`id_tipo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

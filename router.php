@@ -43,6 +43,11 @@ switch ($params[0]) {
         $inmoController = new InmoController();
         $inmoController->DeleteItem($params[1]);
         break;
+        
+    case 'formedit':
+        $inmoController = new InmoController();
+        $inmoController->ShowFormEdit();
+        break;
 
     case 'editar':
         $inmoController = new InmoController();

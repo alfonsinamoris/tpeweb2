@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-09 01:21:29
+/* Smarty version 4.2.1, created on 2022-10-11 16:14:52
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634205f9c54285_47180643',
+  'unifunc' => 'content_63457a5cad4a60_02323558',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1665271286,
+      1 => 1665497688,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634205f9c54285_47180643 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63457a5cad4a60_02323558 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <select class="form-select" name="type_option">
+    <option selected>ver todas </option>
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipos']->value, 'tipo');
 $_smarty_tpl->tpl_vars['tipo']->do_else = true;
@@ -45,10 +46,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <input class="form-control" placeholder=direccion name="direccion">
             <select class="form-select" name="tipo" placeholder="tipo">
                 <option selected>tipo</option>
-                <option value="casa" name="tipo">casa</option>
-                <option value="departamento"name="tipo">departamento</option>
-                <option value="lote"name="tipo">lote</option>
-                <option value="monoambiente"name="tipo">monoambiente</option>
+                <option value="3" name="tipo">casa</option>
+                <option value="4"name="tipo">departamento</option>
+                <option value="5"name="tipo">lote</option>
+                <option value="6"name="tipo">monoambiente</option>
             </select>
         <input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
         <input class="form-control" placeholder=precio type="number" name="precio">
@@ -95,7 +96,7 @@ $_smarty_tpl->tpl_vars['property']->do_else = false;
                     <?php if ((isset($_SESSION['USER_EMAIL']))) {?>
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 "> BORRAR </a>
-                    <td> <a class="btn btn-outline-secondary" type="button" href="editar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="formedit/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 ">EDITAR </td>
                     <?php }?>
                 </tr>

@@ -22,9 +22,10 @@ class InmoView {
         $this->smarty->assign('tipos',$tipos);
         $this->smarty->display('templates/propiedades.tpl');
     }
-
+    function ShowFormEdit(){
+        $this->smarty->display('templates/form.edit.tpl'); 
+    }
     function EditItem($property){
         $this->smarty->assign('property',$property);
-        $this->smarty->display('templates/form.edit.tpl');
     }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-08 00:45:50
+/* Smarty version 4.2.1, created on 2022-10-11 15:46:39
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/form.edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6340ac1ef04002_18528702',
+  'unifunc' => 'content_634573bf2dca53_79855510',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '04fb49d6eeb816a5715e20b9a9d89a92724b250a' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/form.edit.tpl',
-      1 => 1665182746,
+      1 => 1665495730,
       2 => 'file',
     ),
   ),
@@ -22,10 +22,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6340ac1ef04002_18528702 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634573bf2dca53_79855510 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <form method='POST' action="agregar">
+    <form method='POST' action="editar">
         <input class="form-control" placeholder=direccion name="direccion">
             <select class="form-select" name="tipo" placeholder="tipo">
                 <option selected>tipo</option>
@@ -41,7 +41,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                 <option value="alquiler" name="alquiler_venta">alquiler</option>
                 <option value="venta" name="alquiler_venta">venta</option>
         </select>
-        <button class="btn btn-outline-secondary" type="submit" href="editar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id;?>
+        <button class="btn btn-outline-secondary" type="submit" href="editar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
 ">editar</button>
     </form>
 <?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

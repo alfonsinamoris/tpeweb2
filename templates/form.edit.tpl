@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-    <form method='POST' action="agregar">
+    <form method='POST' action="editar">
         <input class="form-control" placeholder=direccion name="direccion">
             <select class="form-select" name="tipo" placeholder="tipo">
                 <option selected>tipo</option>

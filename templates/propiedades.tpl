@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 
 <select class="form-select" name="type_option">
+    <option selected>ver todas </option>
     {foreach from=$tipos item=$tipo}
         <option>{$tipo->tipo_propiedad}</option>
     {/foreach}    
@@ -11,10 +12,10 @@
         <input class="form-control" placeholder=direccion name="direccion">
             <select class="form-select" name="tipo" placeholder="tipo">
                 <option selected>tipo</option>
-                <option value="casa" name="tipo">casa</option>
-                <option value="departamento"name="tipo">departamento</option>
-                <option value="lote"name="tipo">lote</option>
-                <option value="monoambiente"name="tipo">monoambiente</option>
+                <option value="3" name="tipo">casa</option>
+                <option value="4"name="tipo">departamento</option>
+                <option value="5"name="tipo">lote</option>
+                <option value="6"name="tipo">monoambiente</option>
             </select>
         <input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
         <input class="form-control" placeholder=precio type="number" name="precio">
@@ -48,7 +49,7 @@
                     <td> {$property->alquiler_venta} </td>
                     {if isset($smarty.session.USER_EMAIL)}
                     <td> <a class="btn btn-outline-danger" type="button" href="borrar/{$property->id_propiedad}"> BORRAR </a>
-                    <td> <a class="btn btn-outline-secondary" type="button" href="editar/{$property->id_propiedad}">EDITAR </td>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="formedit/{$property->id_propiedad}">EDITAR </td>
                     {/if}
                 </tr>
             </tbody>
