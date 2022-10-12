@@ -8,8 +8,9 @@ class InmoView {
         $this->smarty = new Smarty(); // inicializo Smarty
         $this->controller = new adminController();
     }
-    function showProperties($properties){
+    function showProperties($properties,$tipos){
         $this->smarty->assign('properties', $properties);
+        $this->smarty->assign('tipos',$tipos);
         $this->smarty->display('templates/propiedades.tpl');
     } 
     //muestra detalle

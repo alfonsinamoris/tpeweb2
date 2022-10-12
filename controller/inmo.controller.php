@@ -29,7 +29,8 @@ class InmoController {
     public function showProperties(){
         session_start();
         $property= $this->model->getAllProperties();
-        $this->view->showProperties($property);
+        $tipos = $this->typemodel->showFilters();
+        $this->view->showProperties($property,$tipos);
     }
 
 
