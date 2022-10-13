@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-    <form method='POST' action="editar/{$property->id_propiedad}">
+    <form method='POST' action="editar">
         <input class="form-control" placeholder=direccion name="direccion">
             <select class="form-select" name="tipo" placeholder="tipo">
                 <option selected>tipo</option>
@@ -15,6 +15,6 @@
                 <option value="alquiler" name="alquiler_venta">alquiler</option>
                 <option value="venta" name="alquiler_venta">venta</option>
         </select>
-        <button class="btn btn-outline-secondary" type="submit" href="editar/{$property->id_propiedad}">editar</button>
+        <button class="btn btn-outline-secondary" type="submit">editar</button>
     </form>
 {include file="templates/footer.tpl"}

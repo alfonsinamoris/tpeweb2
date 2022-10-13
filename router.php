@@ -1,6 +1,7 @@
 <?php
 require_once './controller/inmo.controller.php';
 require_once './controller/admin.controller.php';
+require_once './controller/types.controller.php';
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -31,6 +32,7 @@ switch ($params[0]) {
         $AdminController = new AdminController();
         $AdminController->validateUser();
         break;
+
     case 'logout':
         $AdminController = new AdminController();
         $AdminController->Logout();
@@ -44,14 +46,45 @@ switch ($params[0]) {
         $inmoController = new InmoController();
         $inmoController->DeleteItem($params[1]);
         break;
+
     case 'formeditar':
         $id_propiedad = $params[1];
         $inmoController = new InmoController();
         $inmoController->ShowFormEdit($id_propiedad);
+        break;
     case 'editar':
-        $id_propiedad = $params[1];
+         $id_propiedad = $params[1];
          $inmoController = new InmoController();
          $inmoController->EditProperty($id_propiedad);
+        break;
+    
+    case 'filtrar':
+        $id_tipo = $params[1];
+        $TypesController = new TypesController();
+        $TypesController->Filtrar($id_tipo);
+        break;
+
+    case 'borrarcat':
+        $id_tipo = $params[1];
+        $TypesController = new TypesController();
+        $TypesController->DeleteCategory($id_tipo);
+        break;
+
+    case 'agregarcat':
+        $TypesController = new TypesController();
+        $TypesController->AddCategory();  
+        break;
+    
+    case 'formeditarcat':
+        $TypesController = new TypesController();
+        $TypesController->ShowFormEditCat();  
+        break;
+    
+    case 'editarcat':
+        $id_tipo = $params[1];
+        $TypesController = new TypesController();
+        $TypesController->EditCategory($id_tipo);
+        break;
     default:
         echo ('404 Page not found');
         break;

@@ -1,15 +1,16 @@
 <?php
 require_once './model/inmo.model.php';
 require_once './view/admin.view.php';
+require_once './model/admin.model.php';
 //require_once './helpers/admin.helper.php';
 
 
 class adminController {
-    private $model;
+    private $adminmodel;
     private $view;
 
     public function __construct() {
-     $this->model = new InmoModel();
+     $this->adminModel = new adminModel();
      $this->view = new AdminView();
      
     }
@@ -22,7 +23,7 @@ class adminController {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $user = $this->model->getUserByEmail($email);
+        $user = $this->adminModel->getUserByEmail($email);
 
         if($user && password_verify($password, $user->password)){
             session_start();

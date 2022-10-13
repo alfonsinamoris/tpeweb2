@@ -12,7 +12,7 @@ class InmoController {
     public function __construct(){
         $this->model = new InmoModel();
         $this->view = new InmoView();
-        $this->typemodel = new TypeModel();
+        $this->typemodel = new typeModel();
         //$adminhelper = new adminHelper();
         //$adminhelper->checkLoggedIn();
     }
@@ -33,11 +33,6 @@ class InmoController {
         $this->view->showProperties($property,$tipos);
     }
 
-
-    public function showFilters(){
-        $tipos=$this->typemodel->showFilters($tipos);
-        $this->view->showfilters($tipos);
-    }
 
     //muestra la propiedad con su detalle - manda al model y view
     public function showProperty($id_propiedad){
@@ -61,27 +56,27 @@ class InmoController {
         $tipo = $_POST['tipo'];
         $habitaciones = $_POST['habitaciones'];
         $precio = $_POST['precio'];
-        $alquiler_venta = ['alquiler_venta'];
+        $alquiler_venta = $_POST['alquiler_venta'];
 
-        $id= $this->model->insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
+        $id_propiedad=$this->model->insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
         header("Location: " . BASE_URL );
     }
     public function ShowFormEdit(){
         $this->view->showformedit();
-
     }
 
     public function EditProperty($id_propiedad){
         $this->checkLoggedIn();
         session_start();
         if((isset($_POST['direccion'])&&isset($_POST['tipo'])&&isset($_POST['habitaciones'])&&isset($_POST['precio'])&&isset($_POST['alquiler_venta']))&&!empty($_POST['direccion'])&&!empty($_POST['tipo'])&&!empty($_POST['habitaciones'])&&!empty($_POST['precio'])&&!empty($_POST['alquiler_venta'])){
-        $direccion = $_POST['direccion'];
-        $tipo = $_POST['tipo'];
-        $habitaciones = $_POST['habitaciones'];
-        $precio = $_POST['precio'];
-        $alquiler_venta = ['alquiler_venta'];
-        $this->model->EditProperty($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
-        $this->view->EditItem($id_propiedad);
+            $direccion = $_POST['direccion'];
+            $tipo = $_POST['tipo'];
+            $habitaciones = $_POST['habitaciones'];
+            $precio = $_POST['precio'];
+            $alquiler_venta = $_POST['alquiler_venta'];
+            $this->model->EditProperty($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
+            $this->view->EditItem($id_propiedad);
+
+        }
     }
-}
 }

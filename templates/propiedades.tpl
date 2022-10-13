@@ -1,13 +1,24 @@
 {include file="header.tpl"}
+
 <div>
-    <p class="fw-bold"> Listado de Categorias: </p>
-    <table class="table">  
-            {foreach from=$tipos item=tipo}
-            <tr>
-              <td value="{$tipo->id_tipo}">{$tipo->tipo}</td>
-            </td>
-            {{/foreach}} 
-    </table>   
+    {if isset($smarty.session.USER_EMAIL)}
+        <p class="fw-bold"> Listado de Categorias: </p>
+        <div>
+            <form method='POST' action="agregarcat">
+                <input class="form-control" placeholder="agregar categoria" name="tipo">
+                <button class="btn btn-outline-secondary" type="submit" href="agregarcat/{$tipo->tipo}">Agregar</button>
+            </form>
+        </div>
+        <table class="table">  
+                {foreach from=$tipos item=tipo}
+                <tr>
+                <td value="{$tipo->id_tipo}">{$tipo->tipo}</td>
+                <td> <a class="btn btn-outline-secondary" type="button" href="formeditarcat/{$tipo->id_tipo}">EDITAR </td>
+                <td> <a class="btn btn-outline-danger" type="button" href="borrarcat/{$tipo->id_tipo}"> BORRAR </a>
+                </tr>
+                {{/foreach}} 
+        </table>   
+    {/if}
 </div>   
 
 <div>
@@ -19,26 +30,27 @@
         {/foreach}    
     </select>
 </div>
+
 <div>
-    <p class="fw-bold">Agregar Propiedad:</p>
     {if isset($smarty.session.USER_EMAIL)}
+        <p class="fw-bold">Agregar Propiedad:</p>
         <form method='POST' action="agregar">
             <input class="form-control" placeholder=direccion name="direccion">
                 <select class="form-select" name="tipo" placeholder="tipo">
                     <option selected>tipo</option>
-                    <option value="3" name="tipo">casa</option>
-                    <option value="4"name="tipo">departamento</option>
-                    <option value="5"name="tipo">lote</option>
-                    <option value="6"name="tipo">monoambiente</option>
+                    {foreach from=$tipos item=tipo}
+                     <option value="{$tipo->id_tipo}">{$tipo->tipo}</option>
+                    {/foreach}
                 </select>
             <input class="form-control" placeholder=habitaciones type="number" name="habitaciones">
             <input class="form-control" placeholder=precio type="number" name="precio">
             <select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
                     <option selected>alquiler/venta</option>
-                    <option value="alquiler" name="alquiler_venta">alquiler</option>
-                    <option value="venta" name="alquiler_venta">venta</option>
+                    {foreach from=$properties item=$property}
+                        <option>{$property->alquiler_venta}</option>
+                    {/foreach}    
             </select>
-            <button class="btn btn-outline-secondary" type="submit" href="agregar/{$property->id}">enviar</button>
+            <button class="btn btn-outline-secondary" type="submit">Agregar</button>
         </form>  
     {/if}
 </div>
@@ -58,7 +70,7 @@
             <tbody class="table-group-divider">
                 <tr>
                     <td><a href="detalle/{$property->id_propiedad}"> {$property->direccion} </td>
-                    <td> {$property->tipo} </td>
+                    <td> {$tipo->tipo} </td>
                     <td> {$property->habitaciones} </td>
                     <td> {$property->precio} </td>
                     <td> {$property->alquiler_venta} </td>

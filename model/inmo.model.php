@@ -42,7 +42,8 @@ class InmoModel {
 
     public function EditProperty($direccion, $tipo, $habitaciones,$precio,$alquiler_venta){
         $query = $this->db->prepare("UPDATE `propiedades` SET id_propiedad='?',direccion='?',tipo='?',habitaciones='?',precio='?',alquiler_venta='?' WHERE id_propiedad = '?'");
-        $query->execute([$direccion, $tipo, $habitaciones,$precio,$alquiler_venta]);
+        $query->execute(array($direccion, $tipo, $habitaciones,$precio,$alquiler_venta));
         header("Location: " . BASE_URL);
     }
+
 }
