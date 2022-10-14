@@ -1,7 +1,7 @@
 <?php
-require_once './model/inmo.model.php';
-require_once './view/admin.view.php';
-require_once './model/admin.model.php';
+require_once './app/model/inmo.model.php';
+require_once './app/view/admin.view.php';
+require_once './app/model/admin.model.php';
 //require_once './helpers/admin.helper.php';
 
 

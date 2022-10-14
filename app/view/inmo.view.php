@@ -9,8 +9,8 @@ class InmoView {
         $this->controller = new adminController();
     }
     function showProperties($properties,$tipos){
-        $this->smarty->assign('properties', $properties);
-        $this->smarty->assign('tipos',$tipos);
+        $this->smarty->assign('properties', $properties);//tabla propiedades
+        $this->smarty->assign('tipos',$tipos); //muestra tabla productos
         $this->smarty->display('templates/propiedades.tpl');
     } 
     //muestra detalle
@@ -23,13 +23,21 @@ class InmoView {
         $this->smarty->assign('tipos',$tipos);
         $this->smarty->display('templates/propiedades.tpl');
     }
+
+    function Filtrar($properties){
+        $this->smarty->assign('properties',$properties);
+        $this->smarty->display('templates/filterstable.tpl');
+    }
+
     function ShowFormEdit(){
         $this->smarty->display('templates/form.edit.tpl'); 
     }
+
     function EditItem($property){
         $this->smarty->assign('property',$property);
         $this->smarty->display('templates/propiedades.tpl');
     }
+
     function showformeditcat(){
         $this->smarty->display('templates/form.edit.cat.tpl');
     }

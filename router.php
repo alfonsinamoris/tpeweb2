@@ -1,7 +1,7 @@
 <?php
-require_once './controller/inmo.controller.php';
-require_once './controller/admin.controller.php';
-require_once './controller/types.controller.php';
+require_once './app/controller/inmo.controller.php';
+require_once './app/controller/admin.controller.php';
+require_once './app/controller/types.controller.php';
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -52,6 +52,7 @@ switch ($params[0]) {
         $inmoController = new InmoController();
         $inmoController->ShowFormEdit($id_propiedad);
         break;
+        
     case 'editar':
          $id_propiedad = $params[1];
          $inmoController = new InmoController();

@@ -14,10 +14,10 @@ class TypeModel {
     }
 
     public function Filtrar($id_tipo){
-        $query = $this->db->prepare("SELECT * FROM tipo_propiedad WHERE id_tipo = ?");
-        $query->execute();
-        $tipo = $query->fetchAll(PDO::FETCH_OBJ);
-        return $tipo;
+        $query = $this->db->prepare("SELECT * FROM propiedades WHERE tipo = ?");
+        $query->execute(array($id_tipo));
+        $properties = $query->fetchAll(PDO::FETCH_OBJ);
+        return $properties;
     }
 
     public function DeleteCategorybyId($id_tipo){

@@ -1,36 +1,40 @@
 {include file="header.tpl"}
 
 <div>
-    {if isset($smarty.session.USER_EMAIL)}
-        <p class="fw-bold"> Listado de Categorias: </p>
+        {if isset($smarty.session.USER_EMAIL)}
         <div>
             <form method='POST' action="agregarcat">
                 <input class="form-control" placeholder="agregar categoria" name="tipo">
                 <button class="btn btn-outline-secondary" type="submit" href="agregarcat/{$tipo->tipo}">Agregar</button>
             </form>
         </div>
+        {/if}
+        <p class="fw-bold"> Listado de Categorias: </p>
         <table class="table">  
-                {foreach from=$tipos item=tipo}
+                {foreach from=$tipos item=$tipo}
                 <tr>
-                <td value="{$tipo->id_tipo}">{$tipo->tipo}</td>
-                <td> <a class="btn btn-outline-secondary" type="button" href="formeditarcat/{$tipo->id_tipo}">EDITAR </td>
-                <td> <a class="btn btn-outline-danger" type="button" href="borrarcat/{$tipo->id_tipo}"> BORRAR </a>
+                    <td>{$tipo->id_tipo}</td>
+                    <td value="{$tipo->id_tipo}">{$tipo->tipo}</td>
+                    <td> <a class="btn btn-outline-secondary" type="button" href="filtrar/{$tipo->id_tipo}">Ver por categoria </td>
+                    {if isset($smarty.session.USER_EMAIL)}
+                        <td> <a class="btn btn-outline-secondary" type="button" href="formeditarcat/{$tipo->id_tipo}">EDITAR </td>
+                        <td> <a class="btn btn-outline-danger" type="button" href="borrarcat/{$tipo->id_tipo}"> BORRAR </a>
+                    {/if}
                 </tr>
                 {{/foreach}} 
         </table>   
-    {/if}
 </div>   
-
+{*
 <div>
     <p class="fw-bold">Filtrar por:</p>
-    <select class="form-select" name="type_option">
-        <option selected>ver todas</option>
-        {foreach from=$tipos item=tipo}
-            <option value="{$tipo->id_tipo}">{$tipo->tipo}</option>
-        {/foreach}    
-    </select>
+        <select class="form-select" name="type_option">
+            <option selected>ver todas</option>
+            {foreach from=$tipos item=tipo}
+                <option><a name="tipo" value="tipo" href="filtrar">{$tipo->tipo}</option>
+            {/foreach}    
+        </select>
 </div>
-
+*}
 <div>
     {if isset($smarty.session.USER_EMAIL)}
         <p class="fw-bold">Agregar Propiedad:</p>
@@ -46,9 +50,8 @@
             <input class="form-control" placeholder=precio type="number" name="precio">
             <select class="form-select" name="alquiler_venta" placeholder="alquiler/venta">
                     <option selected>alquiler/venta</option>
-                    {foreach from=$properties item=$property}
-                        <option>{$property->alquiler_venta}</option>
-                    {/foreach}    
+                    <option>alquiler</option>   
+                    <option>venta</option>   
             </select>
             <button class="btn btn-outline-secondary" type="submit">Agregar</button>
         </form>  
@@ -70,7 +73,7 @@
             <tbody class="table-group-divider">
                 <tr>
                     <td><a href="detalle/{$property->id_propiedad}"> {$property->direccion} </td>
-                    <td> {$tipo->tipo} </td>
+                    <td> {$property->tipo} </td>
                     <td> {$property->habitaciones} </td>
                     <td> {$property->precio} </td>
                     <td> {$property->alquiler_venta} </td>

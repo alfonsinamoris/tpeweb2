@@ -1,7 +1,7 @@
 <?php
-require_once './model/inmo.model.php';
-require_once './view/inmo.view.php';
-require_once './model/type.model.php';
+require_once './app/model/inmo.model.php';
+require_once './app/view/inmo.view.php';
+require_once './app/model/type.model.php';
 //require_once './helpers/admin.helper.php';
 
 class InmoController {
@@ -61,7 +61,10 @@ class InmoController {
         $id_propiedad=$this->model->insertItem($direccion, $tipo, $habitaciones,$precio,$alquiler_venta);
         header("Location: " . BASE_URL );
     }
+    
     public function ShowFormEdit(){
+        $this->checkLoggedIn();
+        session_start();
         $this->view->showformedit();
     }
 

@@ -1,6 +1,6 @@
 <?php
-require_once './view/inmo.view.php';
-require_once './model/type.model.php';
+require_once './app/view/inmo.view.php';
+require_once './app/model/type.model.php';
 
 class TypesController{
     private $view;
@@ -19,8 +19,8 @@ class TypesController{
     } 
 
     public function Filtrar($id_tipo){
-        $this->view->Filtrar();
-        $this->typemodel->showProperties($id_tipo);
+       $properties = $this->typemodel->Filtrar($id_tipo);
+       $this->view->Filtrar($properties);
     }
 
     public function DeleteCategory($id_tipo){
