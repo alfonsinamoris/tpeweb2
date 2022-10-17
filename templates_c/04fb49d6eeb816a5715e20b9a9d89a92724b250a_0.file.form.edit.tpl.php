@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-17 16:37:26
+/* Smarty version 4.2.1, created on 2022-10-17 17:20:17
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/form.edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634d68a68ead74_26706428',
+  'unifunc' => 'content_634d72b15dddf1_02705021',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '04fb49d6eeb816a5715e20b9a9d89a92724b250a' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/form.edit.tpl',
-      1 => 1666017442,
+      1 => 1666020011,
       2 => 'file',
     ),
   ),
@@ -22,27 +22,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634d68a68ead74_26706428 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634d72b15dddf1_02705021 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-    <form method='POST' action="editar">
-    <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
-" name="id">
-        <input class="form-control" placeholder=direccion name="direccion" value="<?php echo $_smarty_tpl->tpl_vars['property']->value->direccion;?>
+    <form method='POST' action="editar/<?php echo $_smarty_tpl->tpl_vars['property']->value->id_propiedad;?>
+">
+            <input class="form-control" placeholder=direccion name="direccion" value="<?php echo $_smarty_tpl->tpl_vars['property']->value->direccion;?>
 ">
         <select class="form-select" name="tipo" placeholder="tipo" value="<?php echo $_smarty_tpl->tpl_vars['property']->value->tipo;?>
 ">
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipos']->value, 'tipo');
-$_smarty_tpl->tpl_vars['tipo']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['tipo']->value) {
-$_smarty_tpl->tpl_vars['tipo']->do_else = false;
-?>
-                    <option><?php echo $_smarty_tpl->tpl_vars['tipo']->value->tipo;?>
+        <option type="disabled"><?php echo $_smarty_tpl->tpl_vars['property']->value->tipo;?>
 </option>
-                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <input class="form-control" placeholder=habitaciones type="number" name="habitaciones" value="<?php echo $_smarty_tpl->tpl_vars['property']->value->habitaciones;?>
 ">
