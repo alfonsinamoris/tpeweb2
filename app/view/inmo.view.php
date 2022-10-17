@@ -24,8 +24,9 @@ class InmoView {
         $this->smarty->display('templates/filterstable.tpl');
     }
 
-    function ShowFormEdit($property){
+    function ShowFormEdit($property,$tipos){
         $this->smarty->assign('property',$property);
+        $this->smarty->assign('tipos',$tipos);
         $this->smarty->display('templates/form.edit.tpl');
     }
 

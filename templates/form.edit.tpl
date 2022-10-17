@@ -3,7 +3,9 @@
         <input type="hidden" value="{$property->id_propiedad}" name="id">
         <input class="form-control" placeholder=direccion name="direccion" value="{$property->direccion}">
         <select class="form-select" name="tipo" placeholder="tipo" value="{$property->tipo}">
-        <option >{$property->tipo}</option>
+        {foreach from=$tipos item=tipo}
+        <option value="{$tipo->id_tipo}">{$tipo->tipo}</option>
+        {/foreach}
         </select>
         <input class="form-control" placeholder=habitaciones type="number" name="habitaciones" value="{$property->habitaciones}">
         <input class="form-control" placeholder=precio type="number" name="precio" value="{$property->precio}">

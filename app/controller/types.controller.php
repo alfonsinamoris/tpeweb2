@@ -9,6 +9,7 @@ class TypesController{
     public function __construct(){
         $this->view = new InmoView();
         $this->typemodel = new TypeModel();
+        $this->model = new InmoModel();
     }
 
     public function checkLoggedIn() {
@@ -21,8 +22,8 @@ class TypesController{
     public function Filtrar($id_tipo){
         session_start();
         $this->checkLoggedIn();
-       $properties = $this->typemodel->Filtrar($id_tipo);
-       $this->view->Filtrar($properties);
+        $properties = $this->model->Filtrar($id_tipo);
+        $this->view->Filtrar($properties);
     }
 
     public function DeleteCategory($id_tipo){
@@ -41,6 +42,8 @@ class TypesController{
     }
 
     public function ShowFormEditCat($id_tipo){
+        session_start();
+        $this->checkLoggedIn();
         $tipo=$this->typemodel->getTypeById($id_tipo);//toma categoria x id
         $this->view->showformeditcat($tipo);
     }

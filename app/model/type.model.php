@@ -21,13 +21,6 @@ class TypeModel {
     }
 
 
-    public function Filtrar($id_tipo){
-        $query = $this->db->prepare("SELECT * FROM propiedades WHERE tipo = ?");
-        $query->execute(array($id_tipo));
-        $properties = $query->fetchAll(PDO::FETCH_OBJ);
-        return $properties;
-    }
-
     public function DeleteCategorybyId($id_tipo){
         $query = $this->db->prepare("DELETE FROM tipo_propiedad WHERE id_tipo = ?");
         $query->execute(array($id_tipo));
@@ -35,7 +28,7 @@ class TypeModel {
     }
 
     public function InsertCategory($tipo){
-        $query = $this->db->prepare("INSERT INTO `tipo_propiedad`(`tipo`) VALUES(?)");
+        $query = $this->db->prepare("INSERT INTO tipo_propiedad(`tipo`) VALUES(?)");
         $query->execute(array($tipo));
         return $this->db->lastInsertId();
     }

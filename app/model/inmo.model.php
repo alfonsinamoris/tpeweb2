@@ -33,7 +33,13 @@ class InmoModel {
         $query = $this->db->prepare('DELETE FROM propiedades WHERE id_propiedad=?');
         $query->execute(array($id_propiedad));
     }
-
+    public function Filtrar($id_tipo){
+        $query = $this->db->prepare("SELECT * FROM propiedades WHERE tipo = ?");
+        $query->execute(array($id_tipo));
+        $properties = $query->fetchAll(PDO::FETCH_OBJ);
+        return $properties;
+    }
+    
     public function getUserByEmail($email){
         $query = $this->db->prepare("SELECT * FROM users WHERE email = ?");
         $query->execute([$email]);

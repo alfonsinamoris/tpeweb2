@@ -64,7 +64,8 @@ class InmoController {
 
     public function ShowFormEdit($id_propiedad){
         $property=$this->model->showPropertyDetail($id_propiedad); //toma propiedad x id
-        $this->view->showformedit($property);
+        $tipos = $this->typemodel->showFilters();//toma todas las categorias (para foreach)
+        $this->view->showformedit($property,$tipos);
     }
 
     public function EditProperty(){

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-17 16:26:57
+/* Smarty version 4.2.1, created on 2022-10-17 20:27:55
   from '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_634d6631015976_25372146',
+  'unifunc' => 'content_634d9eab9671f0_02855660',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71fc70bd01a6818611b50da7d0239d0e86c470a3' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/web2/tpe/templates/propiedades.tpl',
-      1 => 1666016369,
+      1 => 1666031262,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_634d6631015976_25372146 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634d9eab9671f0_02855660 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -31,8 +31,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
         <div>
             <form method='POST' action="agregarcat">
                 <input class="form-control" placeholder="agregar categoria" name="tipo">
-                <button class="btn btn-outline-secondary" type="submit" href="agregarcat/<?php echo $_smarty_tpl->tpl_vars['tipo']->value->tipo;?>
-">Agregar</button>
+                <button class="btn btn-outline-secondary" type="submit">Agregar</button>
             </form>
         </div>
         <?php }?>

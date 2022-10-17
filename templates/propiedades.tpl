@@ -5,7 +5,7 @@
         <div>
             <form method='POST' action="agregarcat">
                 <input class="form-control" placeholder="agregar categoria" name="tipo">
-                <button class="btn btn-outline-secondary" type="submit" href="agregarcat/{$tipo->tipo}">Agregar</button>
+                <button class="btn btn-outline-secondary" type="submit">Agregar</button>
             </form>
         </div>
         {/if}

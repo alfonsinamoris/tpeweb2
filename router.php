@@ -50,7 +50,7 @@ switch ($params[0]) {
     case 'formeditar':
         $id_propiedad = $params[1];
         $inmoController = new InmoController();
-        $inmoController->ShowFormEdit($params[1]);
+        $inmoController->ShowFormEdit($id_propiedad);
         break;
 
     case 'editar':
