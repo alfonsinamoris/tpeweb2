@@ -63,6 +63,8 @@ class InmoController {
     }
 
     public function ShowFormEdit($id_propiedad){
+        session_start();
+        $this->checkLoggedIn();
         $property=$this->model->showPropertyDetail($id_propiedad); //toma propiedad x id
         $tipos = $this->typemodel->showFilters();//toma todas las categorias (para foreach)
         $this->view->showformedit($property,$tipos);

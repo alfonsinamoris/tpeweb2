@@ -22,7 +22,8 @@
                     {/if}
                 </tr>
                 {{/foreach}} 
-        </table>     
+        </table>    
+
 </div>   
 {*
 <div>

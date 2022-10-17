@@ -31,6 +31,7 @@ class TypesController{
         $this->checkLoggedIn();
         $this->typemodel->DeleteCategorybyId($id_tipo);
         header("Location: " . BASE_URL . "propiedades");
+
     }
 
     public function AddCategory(){
