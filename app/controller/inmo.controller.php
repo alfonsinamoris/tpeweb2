@@ -68,11 +68,11 @@ class InmoController {
         $this->view->showformedit($property);
     }
 
-    public function EditProperty($id_propiedad){
+    public function EditProperty(){
         session_start();
         $this->checkLoggedIn();
         //if(!empty($_POST['direccion'])&&!empty($_POST['id'])&&!empty($_POST['tipo'])&&!empty($_POST['habitaciones'])&&!empty($_POST['precio'])&&!empty($_POST['alquiler_venta'])){
-            //$id_propiedad = $_POST['id'];
+            $id_propiedad = $_POST['id'];
             $direccion = $_POST['direccion'];
             $tipo = $_POST['tipo'];
             $habitaciones = $_POST['habitaciones'];

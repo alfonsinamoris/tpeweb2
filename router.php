@@ -55,7 +55,7 @@ switch ($params[0]) {
 
     case 'editar':
          $inmoController = new InmoController();
-         $inmoController->EditProperty($params[1]);
+         $inmoController->EditProperty();
         break;
     
     case 'filtrar':
