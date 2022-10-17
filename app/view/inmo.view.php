@@ -19,26 +19,22 @@ class InmoView {
         $this->smarty->display('templates/detail.tpl'); 
     }
 
-    function showfilters($tipos){
-        $this->smarty->assign('tipos',$tipos);
-        $this->smarty->display('templates/propiedades.tpl');
-    }
-
     function Filtrar($properties){
         $this->smarty->assign('properties',$properties);
         $this->smarty->display('templates/filterstable.tpl');
     }
 
-    function ShowFormEdit(){
-        $this->smarty->display('templates/form.edit.tpl'); 
-    }
-
-    function EditItem($property){
+    function ShowFormEdit($property,$tipos){
         $this->smarty->assign('property',$property);
-        $this->smarty->display('templates/propiedades.tpl');
+        $this->smarty->assign('tipos',$tipos);
+        $this->smarty->display('templates/form.edit.tpl');
     }
 
-    function showformeditcat(){
+
+    function showformeditcat($tipo,$tipos){
+        $this->smarty->assign('tipo',$tipo);
+        $this->smarty->assign('tipos',$tipos);
         $this->smarty->display('templates/form.edit.cat.tpl');
     }
+
 }

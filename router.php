@@ -16,7 +16,7 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'propiedades':
         $inmoController = new InmoController();
-        $inmoController->showProperties();
+        $inmoController->showProperties(isset($index) ? intval($params[1]) : null);
         break;
 
     case 'detalle': //muestro el detalle de cada item- mando funcion al controller USER
@@ -50,13 +50,12 @@ switch ($params[0]) {
     case 'formeditar':
         $id_propiedad = $params[1];
         $inmoController = new InmoController();
-        $inmoController->ShowFormEdit($id_propiedad);
+        $inmoController->ShowFormEdit($params[1]);
         break;
-        
+
     case 'editar':
-         $id_propiedad = $params[1];
          $inmoController = new InmoController();
-         $inmoController->EditProperty($id_propiedad);
+         $inmoController->EditProperty();
         break;
     
     case 'filtrar':
@@ -77,14 +76,14 @@ switch ($params[0]) {
         break;
     
     case 'formeditarcat':
+        $id_tipo = $params[1];
         $TypesController = new TypesController();
-        $TypesController->ShowFormEditCat();  
+        $TypesController->ShowFormEditCat($id_tipo);  
         break;
     
     case 'editarcat':
-        $id_tipo = $params[1];
         $TypesController = new TypesController();
-        $TypesController->EditCategory($id_tipo);
+        $TypesController->EditCategory();
         break;
     default:
         echo ('404 Page not found');

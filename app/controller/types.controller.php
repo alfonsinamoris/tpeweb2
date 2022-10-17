@@ -19,6 +19,8 @@ class TypesController{
     } 
 
     public function Filtrar($id_tipo){
+        session_start();
+        $this->checkLoggedIn();
        $properties = $this->typemodel->Filtrar($id_tipo);
        $this->view->Filtrar($properties);
     }
@@ -38,12 +40,18 @@ class TypesController{
         header("Location: " . BASE_URL );
     }
 
-    public function ShowFormEditCat(){
-        $this->view->showformeditcat();
+    public function ShowFormEditCat($id_tipo){
+        $tipo=$this->typemodel->typeById($id_tipo);
+        $tipos=$this->typemodel->showFilters();
+        $this->view->showformeditcat($tipo,$tipos);
     }
 
-    public function EditCategory($id_tipo){
-        $id_tipo=$this->typemodel->EditCategorybyId($id_tipo);
+    public function EditCategory(){
+        session_start();
+        $this->checkLoggedIn();
+        $id_tipo=$_POST['id'];
+        $tipo=$_POST['tipo'];
+        $this->typemodel->EditCategorybyId($id_tipo,$tipo);
         header("Location: " . BASE_URL );
     }
 }
