@@ -6,11 +6,11 @@ class TypeModel {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=inmobiliaria;charset=utf8', 'root', '');
     }
 
-    public function typeById($id_tipo){
+    public function getTypeById($id_tipo){
         $query = $this->db->prepare("SELECT * FROM tipo_propiedad WHERE id_tipo=?");
-        $query->execute();
-        $tipo = $query->fetchAll(PDO::FETCH_OBJ);
-        return $tipo;    
+        $query->execute(array($id_tipo));
+        $tipo = $query->fetch(PDO::FETCH_OBJ);
+        return $tipo;
     }
 
     public function showFilters(){
@@ -40,7 +40,7 @@ class TypeModel {
         return $this->db->lastInsertId();
     }
 
-    public function EditCategorybyId($id_tipo,$tipo){
+    public function EditCategorybyId($tipo,$id_tipo){
         $query = $this->db->prepare("UPDATE tipo_propiedad SET tipo=? WHERE id_tipo = ?");
         $query->execute(array($tipo,$id_tipo));
     }

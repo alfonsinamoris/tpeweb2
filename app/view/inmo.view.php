@@ -30,9 +30,8 @@ class InmoView {
     }
 
 
-    function showformeditcat($tipo,$tipos){
+    function showformeditcat($tipo){
         $this->smarty->assign('tipo',$tipo);
-        $this->smarty->assign('tipos',$tipos);
         $this->smarty->display('templates/form.edit.cat.tpl');
     }
 

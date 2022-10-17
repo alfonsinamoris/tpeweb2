@@ -41,9 +41,8 @@ class TypesController{
     }
 
     public function ShowFormEditCat($id_tipo){
-        $tipo=$this->typemodel->typeById($id_tipo);
-        $tipos=$this->typemodel->showFilters();
-        $this->view->showformeditcat($tipo,$tipos);
+        $tipo=$this->typemodel->getTypeById($id_tipo);//toma categoria x id
+        $this->view->showformeditcat($tipo);
     }
 
     public function EditCategory(){
@@ -51,7 +50,7 @@ class TypesController{
         $this->checkLoggedIn();
         $id_tipo=$_POST['id'];
         $tipo=$_POST['tipo'];
-        $this->typemodel->EditCategorybyId($id_tipo,$tipo);
+        $this->typemodel->EditCategorybyId($tipo,$id_tipo);
         header("Location: " . BASE_URL );
     }
 }

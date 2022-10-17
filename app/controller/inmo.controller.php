@@ -64,14 +64,12 @@ class InmoController {
 
     public function ShowFormEdit($id_propiedad){
         $property=$this->model->showPropertyDetail($id_propiedad); //toma propiedad x id
-        $tipos = $this->typemodel->showFilters(); //toma todos los tipos
         $this->view->showformedit($property);
     }
 
     public function EditProperty(){
         session_start();
         $this->checkLoggedIn();
-        //if(!empty($_POST['direccion'])&&!empty($_POST['id'])&&!empty($_POST['tipo'])&&!empty($_POST['habitaciones'])&&!empty($_POST['precio'])&&!empty($_POST['alquiler_venta'])){
             $id_propiedad = $_POST['id'];
             $direccion = $_POST['direccion'];
             $tipo = $_POST['tipo'];
