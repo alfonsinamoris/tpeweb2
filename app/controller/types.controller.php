@@ -20,8 +20,6 @@ class TypesController{
     } 
 
     public function Filtrar($id_tipo){
-        session_start();
-        $this->checkLoggedIn();
         $properties = $this->model->Filtrar($id_tipo);
         $this->view->Filtrar($properties);
     }
@@ -29,9 +27,13 @@ class TypesController{
     public function DeleteCategory($id_tipo){
         session_start();
         $this->checkLoggedIn();
+        $properties = $this->model->Filtrar($id_tipo);
+        if(count($properties)>0){
+            $this->view->ShowError();
+        }else{
         $this->typemodel->DeleteCategorybyId($id_tipo);
         header("Location: " . BASE_URL . "propiedades");
-
+        }
     }
 
     public function AddCategory(){

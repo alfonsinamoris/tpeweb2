@@ -22,6 +22,7 @@ switch ($params[0]) {
     case 'detalle': //muestro el detalle de cada item- mando funcion al controller USER
         $inmoController = new InmoController();
         $inmoController->showProperty($params[1]);
+        break;
 
     case 'login'://muestro el form para acceder a ADMIN
         $adminController = new adminController();
@@ -36,6 +37,7 @@ switch ($params[0]) {
     case 'logout':
         $AdminController = new AdminController();
         $AdminController->Logout();
+        break;
 
     case 'agregar'://agrego item con form - mando funcion al controller ADMIN
         $inmoController = new InmoController();

@@ -34,5 +34,8 @@ class InmoView {
         $this->smarty->assign('tipo',$tipo);
         $this->smarty->display('templates/form.edit.cat.tpl');
     }
-
+    
+    function ShowError(){
+        $this->smarty->display('templates/error.tpl');
+    }
 }
